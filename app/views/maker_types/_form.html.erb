@@ -1,0 +1,27 @@
+<%= form_with(model: maker_type, local: true) do |form| %>
+  <% if maker_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(maker_type.errors.count, "error") %> prohibited this maker_type from being saved:</h2>
+
+      <ul>
+      <% maker_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :maker_id %>
+    <%= form.text_field :maker_id, id: :maker_type_maker_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type_id %>
+    <%= form.text_field :type_id, id: :maker_type_type_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タグ</strong>
+  <%= @maker.types.map(&:name).join(',') %>
+</p>
+
+<%= link_to 'Edit', edit_maker_path(@maker) %> |
+<%= link_to 'Back', makers_path %>

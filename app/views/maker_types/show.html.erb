@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Maker:</strong>
+  <%= @maker_type.maker %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @maker_type.type %>
+</p>
+
+<%= link_to 'Edit', edit_maker_type_path(@maker_type) %> |
+<%= link_to 'Back', maker_types_path %>

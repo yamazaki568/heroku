@@ -1,0 +1,70 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :user_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :encrypted_password %>
+    <%= form.text_field :encrypted_password, id: :user_encrypted_password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reset_password_token %>
+    <%= form.text_field :reset_password_token, id: :user_reset_password_token %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :reset_password_sent_at %>
+    <%= form.text_field :reset_password_sent_at, id: :user_reset_password_sent_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remember_created_at %>
+    <%= form.text_field :remember_created_at, id: :user_remember_created_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sign_in_count %>
+    <%= form.text_field :sign_in_count, id: :user_sign_in_count %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :reset_password_token %>
+    <%= form.text_field :reset_password_token, id: :user_reset_password_token %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :current_sign_in_at %>
+    <%= form.text_field :current_sign_in_at, id: :user_current_sign_in_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current_sign_in_ip %>
+    <%= form.text_field :current_sign_in_ip, id: :user_current_sign_in_ip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_sign_in_ip %>
+    <%= form.text_field :last_sign_in_ip, id: :user_last_sign_in_ip %>
+  </div>
+  
+  
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

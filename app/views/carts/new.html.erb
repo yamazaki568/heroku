@@ -1,0 +1,15 @@
+<% @line_items.each do |item|  %>
+    <% book = item.book %>
+    <div>
+        <h3><%= book.title %></h3>
+        <p><%= item.quantity %>冊</p>
+        <p>
+            <%= number_to_currency item.total_price,precision: 0,unit: "", format: "%u %n" %>
+            <span>円（税込）</span>
+        </p>
+    </div>
+<% end %>
+
+<%= render 'form', cart: @cart %>
+
+<%= link_to 'Back', carts_path %>

@@ -1,0 +1,26 @@
+<%= form_with(model: maker, local: true) do |form| %>
+  <% if maker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(maker.errors.count, "error") %> prohibited this maker from being saved:</h2>
+
+      <ul>
+      <% maker.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :maker_name %>
+  </div>
+  
+  <div class="fields">
+    <%= collection_check_boxes :maker, :type_ids, Type.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

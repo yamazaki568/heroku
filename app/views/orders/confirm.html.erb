@@ -1,0 +1,25 @@
+<%= form_with(model: @order, local: true) do |form| %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.hidden_field :address, value: @order.address %>
+    
+    <% @line_items.each do |item| %>
+        <% book = item.book %>
+        <div>
+            <h3><%= book.title %></h3>
+            <p><%= item.quantity %>冊</p>
+            <p>
+                <%= number_to_currency item.total_price, precision: 0, unit: "", format: "%u %n" %>
+                <span>円（税込）</span>
+            </p>
+        </div>
+        <%= form.hidden_field :quantity, value: item.quantity %>
+        <%= form.hidden_field :book_id, value: item.book_id %>
+
+    <% end %>
+    <p> 商品合計</p>
+     <%= number_to_currency @cart.total_price, precision: 0, unit: "", format: "%u %n" %>
+     <span>円（税込）</span>
+     
+
+    <%= form.submit "購入を確定する" %>
+<% end %>

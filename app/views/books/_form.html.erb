@@ -1,0 +1,51 @@
+<%= form_with(model: book, local: true) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :book_title, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author, id: :book_author, class: "form-control"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :published_on %>
+    <%= form.date_select :published_on, id: :book_published_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :showing %>
+    <%= form.check_box :showing, id: :book_showing %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, id: :book_price %>
+  </div>
+  
+  <div class="fields">
+    <%= collection_check_boxes :book, :tags_ids, Tag.all, :id, :name %>
+  </div>
+  
+  <div class="fields">
+    <%= form.label :picture %>
+    <%= form.file_field :picture, id: :book_picture%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>

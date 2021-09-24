@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Maker Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Maker</th>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @maker_types.each do |maker_type| %>
+      <tr>
+        <td><%= maker_type.maker %></td>
+        <td><%= maker_type.type %></td>
+        <td><%= link_to 'Show', maker_type %></td>
+        <td><%= link_to 'Edit', edit_maker_type_path(maker_type) %></td>
+        <td><%= link_to 'Destroy', maker_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Maker Type', new_maker_type_path %>

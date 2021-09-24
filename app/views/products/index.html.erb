@@ -1,0 +1,30 @@
+<h1> BOOK</h1>
+
+
+<%= search_form_for @q do |f| %>
+    <%= f.text_field :title_or_author_cont %>
+    <%= f.submit %>
+<% end %>
+
+
+
+
+<% @books.each do |book| %>
+<p>
+    <table class = "table table-striped">
+    <%= number_to_currency(book.try(:price),precison: 0, unit:"円") %>
+    <% if current_favorite?(book) %>
+        <%='☆'%>
+    <% else %>
+        <%= link_to 'お気に入り　', check_items_path(book_id: book.id),method: :post,class: 'btn-default' %>
+        <%= link_to 'カートに入れる', line_items_path(book_id: book.id),method: :post,class: 'btn-default' %>
+    <% end %>
+    <%= link_to book.title, product_path(book.id),class: 'btn-default' %>
+    <%= book.author %>
+    <%= link_to '購入', new_order_path(book_id: book.id),class: 'btn-default' %>
+    
+    </table>
+</p>
+<% end %>
+    <%= link_to '🛒', cart_path(@cart.id),class: 'btn-default' %>
+
