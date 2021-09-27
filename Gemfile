@@ -1,10 +1,10 @@
-#Ruby '2.6.3'
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+#ruby '2.6.3'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -65,5 +65,5 @@ gem 'jquery-rails'
 gem 'ransack'
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.20'
 end
