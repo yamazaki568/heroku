@@ -1,9 +1,9 @@
 class AddfavoriteToCheckItem < ActiveRecord::Migration[5.1]
   def change
-      create_table :check_items do |t|
-      t.references :favorite, foreign_key: true
+      #change_table :check_items do |t|
+     # t.references :favorite, foreign_key: true
 
-      t.timestamps
-    end
+     # t.timestamps
+    #end
   end
 end

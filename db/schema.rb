@@ -45,10 +45,12 @@ ActiveRecord::Schema.define(version: 20210924064057) do
   end
 
   create_table "check_items", force: :cascade do |t|
-    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_check_items_on_product_id"
+    t.integer "book_id"
+    t.integer "favorite_id"
+    t.index ["book_id"], name: "index_check_items_on_book_id"
+    t.index ["favorite_id"], name: "index_check_items_on_favorite_id"
   end
 
   create_table "favorites", force: :cascade do |t|
